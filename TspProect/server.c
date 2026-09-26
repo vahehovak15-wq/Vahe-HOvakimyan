@@ -77,7 +77,13 @@ void *handle_client(void *arg) {
     );
 
     if (parsed != 3) {
-        printf("Invalid request format\n");
+        char *response =
+            "CHLP/1.0 400 Bad Request\n"
+            "Body-Size: 0\n"
+            "\n";
+
+        send_all(client_fd, response, strlen(response));
+        printf("400 Bad Request: invalid request format\n");
         close(client_fd);
         return NULL;
     }
@@ -102,7 +108,9 @@ void *handle_client(void *arg) {
 
         close(client_fd);
         return NULL;
-    }size_t body_size = 0;
+    }
+
+    size_t body_size = 0;
 
         char *body_size_header = strstr(buffer, "Body-Size:");
 
@@ -198,6 +206,18 @@ void *handle_client(void *arg) {
 
     if (strcmp(method, "GET") == 0) {
 
+        if (body_size != 0) {
+            char *response =
+                "CHLP/1.0 400 Bad Request\n"
+                "Body-Size: 0\n"
+                "\n";
+
+            send_all(client_fd, response, strlen(response));
+            printf("400 Bad Request: GET body must be empty\n");
+            close(client_fd);
+            return NULL;
+        }
+
         char filepath[512];
         if (strstr(resource, "..") != NULL) {
 
@@ -218,7 +238,9 @@ void *handle_client(void *arg) {
             sizeof(filepath),
             "server_files%s",
             resource
-        );FILE *file = fopen(filepath, "rb");
+        );
+
+        FILE *file = fopen(filepath, "rb");
 
 if (file == NULL) {
 
