@@ -1,0 +1,11 @@
+Sep 29 10:01:12 server sshd[1201]: Failed password for invalid user admin from 203.0.113.50 port 50101 ssh2
+Sep 29 10:01:18 server sshd[1202]: Failed password for invalid user admin from 203.0.113.50 port 50102 ssh2
+Sep 29 10:01:24 server sshd[1203]: Failed password for root from 203.0.113.50 port 50103 ssh2
+Sep 29 10:01:30 server sshd[1204]: Failed password for root from 203.0.113.50 port 50104 ssh2
+Sep 29 10:01:36 server sshd[1205]: Failed password for root from 203.0.113.50 port 50105 ssh2
+Sep 29 10:03:10 server sshd[1210]: Accepted publickey for vahe from 192.168.1.25 port 51000 ssh2
+Sep 29 10:05:42 server sshd[1220]: Failed password for invalid user test from 198.51.100.77 port 52001 ssh2
+Sep 29 10:06:11 server sudo: vahe : TTY=pts/0 ; PWD=/home/vahe ; USER=root ; COMMAND=/usr/bin/apt update
+Sep 29 10:07:55 server sshd[1230]: Accepted password for root from 203.0.113.50 port 50106 ssh2
+Sep 29 10:08:10 server sudo: root : TTY=pts/1 ; PWD=/root ; USER=root ; COMMAND=/bin/cat /etc/shadow
+

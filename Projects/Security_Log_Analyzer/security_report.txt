@@ -1,0 +1,17 @@
+=== Security Log Report ===
+
+Total failed SSH attempts:
+6
+
+Failed attempts by IP:
+   5 203.0.113.50
+   1 198.51.100.77
+
+Successful root logins:
+Sep 29 10:07:55 server sshd[1230]: Accepted password for root from 203.0.113.50 port 50106 ssh2
+
+Access to /etc/shadow:
+Sep 29 10:08:10 server sudo: root : TTY=pts/1 ; PWD=/root ; USER=root ; COMMAND=/bin/cat /etc/shadow
+
+Suspicious IPs (3 or more failed attempts):
+ALERT: 203.0.113.50 - 5 failed attempts
